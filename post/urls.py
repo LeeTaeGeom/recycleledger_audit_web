@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 app_name = 'post'
 urlpatterns = [
     path("postlist/",postlist,name="postlist"),
-    path("upload/",uploadFile,name="uploadFile"),
+    path("uploadFile/",uploadFile,name="uploadFile"),
 ]
 
 if settings.DEBUG:

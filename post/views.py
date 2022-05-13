@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from models import Document
+from .models import Document
 from openpyxl import Workbook # 엑셀을 만드는 api (엑셀 미설치 시에도 동작)
 from io import BytesIO # 엑셀 파일을 전송 할 수 있도록 바이트 배열로 변환
 
@@ -24,7 +24,7 @@ def uploadFile(request):
             uploadedFile=uploadedFile
         )
         document.save()
-    return redirect('postlist')
+    return redirect('post:postlist')
     
 
 
