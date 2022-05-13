@@ -1,9 +1,16 @@
-from django.shortcuts import render
-from . import models
+from django.shortcuts import render, redirect
+from models import Document
 from openpyxl import Workbook # 엑셀을 만드는 api (엑셀 미설치 시에도 동작)
 from io import BytesIO # 엑셀 파일을 전송 할 수 있도록 바이트 배열로 변환
 
 # Create your views here.
+
+def postlist(request):
+    documents = Document.objects.all()
+
+    return render(request, "post/upload-file.html", context={
+        "files": documents
+    })
 
 def uploadFile(request):
     if request.method == "POST":
@@ -12,17 +19,13 @@ def uploadFile(request):
         uploadedFile = request.FILES["uploadedFile"]
 
         # Saving the information in the database
-        document = models.Document(
+        document = Document(
             title=fileTitle,
             uploadedFile=uploadedFile
         )
         document.save()
-
-    documents = models.Document.objects.all()
-
-    return render(request, "post/upload-file.html", context={
-        "files": documents
-    })
+    return redirect('postlist')
+    
 
 
 # 내가 짜다가 만 report view - 멘토님이 보내주신 엑셀 파일 기반으로 대충 해봄
