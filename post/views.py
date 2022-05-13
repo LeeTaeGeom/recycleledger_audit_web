@@ -8,11 +8,14 @@ from io import BytesIO # 엑셀 파일을 전송 할 수 있도록 바이트 배
 def postlist(request):
     documents = Document.objects.all()
 
-    return render(request, "post/upload-file.html", context={
+    return render(request, "post/postlist.html", context={
         "files": documents
     })
 
 def uploadFile(request):
+    return render(request,"post/upload-file.html")
+
+def saveFile(request):
     if request.method == "POST":
         # Fetching the form data
         fileTitle = request.POST["fileTitle"]

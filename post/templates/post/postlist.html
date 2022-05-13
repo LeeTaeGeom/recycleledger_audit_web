@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>File Path</th>
+            <th>Upload Date & Time</th>
+        </tr>
+        {% for file in files %}
+            <tr>
+                <td>{{ file.id }}</td>
+                <td>{{ file.title }}</td>
+                <td>{{ file.uploadedFile.url }}</td>
+                <td>{{ file.dateTimeOfUpload }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

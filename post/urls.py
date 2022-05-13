@@ -7,6 +7,7 @@ app_name = 'post'
 urlpatterns = [
     path("postlist/",postlist,name="postlist"),
     path("uploadFile/",uploadFile,name="uploadFile"),
+    path("saveFile/",saveFile,name="saveFile"),
 ]
 
 if settings.DEBUG:
