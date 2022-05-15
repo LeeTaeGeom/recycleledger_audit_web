@@ -8,6 +8,7 @@ urlpatterns = [
     path("postlist/",postlist,name="postlist"),
     path("uploadFile/",uploadFile,name="uploadFile"),
     path("saveFile/",saveFile,name="saveFile"),
+    path("file/",file,name="file"),
 ]
 
 if settings.DEBUG:
