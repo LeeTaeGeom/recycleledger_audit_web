@@ -1,0 +1,12 @@
+asgiref==3.5.1
+chardet==4.0.0
+Django==4.0.4
+django-excel==0.0.10
+et-xmlfile==1.1.0
+lml==0.1.0
+openpyxl==3.0.9
+pyexcel==0.7.0
+pyexcel-io==0.6.6
+pyexcel-webio==0.1.4
+sqlparse==0.4.2
+texttable==1.6.4
