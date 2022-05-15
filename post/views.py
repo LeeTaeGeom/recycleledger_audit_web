@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Document
 from openpyxl import Workbook # 엑셀을 만드는 api (엑셀 미설치 시에도 동작)
 from io import BytesIO # 엑셀 파일을 전송 할 수 있도록 바이트 배열로 변환
-
+from django.core.files.storage import FileSystemStorage
+import pandas as pd
+from datetime import datetime
+from django.conf import settings
 # Create your views here.
 
 def postlist(request):
@@ -28,8 +31,31 @@ def saveFile(request):
         )
         document.save()
     return redirect('post:postlist')
-    
+   
+def file(request):
+    if request.method == "POST":
+        fileTitle = request.POST["fileTitle"]
+        uploadedFile = request.FILES["uploadedFile"]
+        
+        # n_path=settings.MEDIA_ROOT+'/'+datetime.today().strftime("%Y-%m-%d")
+        
+        fs=FileSystemStorage()
+        
+        filename=fs.save(uploadedFile.name,uploadedFile)
+        url=fs.url(filename)
+        
+        print(filename)
+        print(url)
 
+        exceldata=pd.read_excel("."+url)
+
+        # # Saving the information in the database
+        # document = Document(
+        #     title=fileTitle,
+        #     uploadedFile=uploadedFile
+        # )
+        # document.save()
+    return redirect('post:postlist')
 
 # 내가 짜다가 만 report view - 멘토님이 보내주신 엑셀 파일 기반으로 대충 해봄
 # 중간의 Report는 model에 생성할 db에 들어갈것 
@@ -60,3 +86,4 @@ def report(request):
         model = Report, 	#매핑 대상 db
         mapdict= ['date', 'PO_name', 'address', 'collector', 'quantity', 'converted_qty', 'conllecting_company'  ]) # 칼럼에 매핑하기
 """
+
