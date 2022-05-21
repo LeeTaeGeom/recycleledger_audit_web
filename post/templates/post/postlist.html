@@ -16,6 +16,31 @@
                 <td>{{ file.dateTimeOfUpload }}</td>
             </tr>
         {% endfor %}
+
+    </table>
+    <table>
+        <tr>
+            <th>date</th>
+            <th>PO_name</th>
+            <th>address</th>
+            <th>collector</th>
+            <th>quantity</th>
+            <th>converted_qty</th>
+            <th>conllecting_company</th>
+        </tr>
+        <br>
+        {% for data in datas %}
+              
+            <tr>
+                <td>{{ data.date }}</td>
+                <td>{{ data.PO_name }}</td>
+                <td>{{ data.address }}</td>
+                <td>{{ data.collector }}</td>
+                <td>{{ data.quantity }}</td>
+                <td>{{ data.converted_qty }}</td>
+                <td>{{ data.conllecting_company }}</td>
+            </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

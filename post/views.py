@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Document
+from .models import *
 from openpyxl import Workbook # 엑셀을 만드는 api (엑셀 미설치 시에도 동작)
 from io import BytesIO # 엑셀 파일을 전송 할 수 있도록 바이트 배열로 변환
 from django.core.files.storage import FileSystemStorage
@@ -10,9 +10,10 @@ from django.conf import settings
 
 def postlist(request):
     documents = Document.objects.all()
-
+    excel=Report.objects.all()
     return render(request, "post/postlist.html", context={
-        "files": documents
+        "files": documents,
+        "datas":excel
     })
 
 def uploadFile(request):
@@ -49,12 +50,19 @@ def file(request):
 
         exceldata=pd.read_excel("."+url)
 
-        # # Saving the information in the database
-        # document = Document(
-        #     title=fileTitle,
-        #     uploadedFile=uploadedFile
-        # )
-        # document.save()
+        for idx, i in exceldata.iterrows():
+            
+            document = Report(
+            date =i['Date of Collection'],
+            PO_name =i['PO name'],
+            address=i['Region(Address)'],
+            collector=i['Collector'],
+            quantity =i['Quantity(can)'],
+            converted_qty = i['Converted qty(kg)'],
+            conllecting_company=i['Collecting company'],
+            )      
+            document.save()
+        
     return redirect('post:postlist')
 
 # 내가 짜다가 만 report view - 멘토님이 보내주신 엑셀 파일 기반으로 대충 해봄
