@@ -12,7 +12,7 @@
 2. 엑셀파일 업로드 기능 <br/> 
 -> 파일 업로드 시 서버 단에서 바로 영업 여부 판별후 레포트 반영
 4. 레포트 기능<br/>
-<summary>
+<summary> <br/>
 - Total Qty <br/> 
 - Total Weight <br/>
 - Collecting company <br/>
