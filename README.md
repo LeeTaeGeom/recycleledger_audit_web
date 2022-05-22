@@ -11,8 +11,7 @@
 1. filtering 기능 (중상,좌상,단석이 서로서로 앞뒤부분이 보이지 않도록 한다.)
 2. 엑셀파일 업로드 기능 <br/> 
 -> 파일 업로드 시 서버 단에서 바로 영업 여부 판별후 레포트 반영
-4. 레포트 기능<br/>
-<summary> <br/>
+4. 레포트 기능  <summary> <br/>
 - Total Qty <br/> 
 - Total Weight <br/>
 - Collecting company <br/>
