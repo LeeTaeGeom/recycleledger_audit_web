@@ -9,18 +9,18 @@
 
 ### 1.1 주요 기능
 1. filtering 기능 (중상,좌상,단석이 서로서로 앞뒤부분이 보이지 않도록 한다.)
-2. 엑셀파일 업로드 기능 
-&nbsp; -> 파일 업로드 시 서버 단에서 바로 영업 여부 판별후 레포트 반영
-4. 레포트 기능 
+2. 엑셀파일 업로드 기능 <br/> 
+-> 파일 업로드 시 서버 단에서 바로 영업 여부 판별후 레포트 반영
+4. 레포트 기능<br/>
 <summary>
-- Total Qty 
-- Total Weight 
-- Collecting company
-- verified Ratio
-- Region
-- 영업점 클릭시 지도 뜨고
-- 위치 뜨게하기 
-- verified 안됐을 경우 직접 수정 가능하게 하기
+- Total Qty <br/> 
+- Total Weight <br/>
+- Collecting company <br/>
+- verified Ratio <br/>
+- Region <br/>
+- 영업점 클릭시 지도 뜨고 <br/>
+- 위치 뜨게하기 <br/>
+- verified 안됐을 경우 직접 수정 가능하게 하기 <br/>
 
 ## 2. 프로그래밍 언어
 
