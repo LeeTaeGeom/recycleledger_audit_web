@@ -15,4 +15,4 @@ class Report(models.Model):
     collector = models.CharField(max_length=200,null=True) 
     quantity = models.IntegerField(null=True) 
     converted_qty = models.FloatField(null=True) 
-    conllecting_company = models.CharField(max_length=200,null=True)
+    collecting_company = models.CharField(max_length=200,null=True)

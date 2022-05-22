@@ -59,7 +59,7 @@ def file(request):
             collector=i['Collector'],
             quantity =i['Quantity(can)'],
             converted_qty = i['Converted qty(kg)'],
-            conllecting_company=i['Collecting company'],
+            collecting_company=i['Collecting company'],
             )      
             document.save()
         
